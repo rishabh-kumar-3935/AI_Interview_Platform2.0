@@ -1,4 +1,4 @@
-import { ConceptHistory } from "../models/conceptHistory.model.js";
+import { ConceptHistory } from "../models/concepthistory.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
