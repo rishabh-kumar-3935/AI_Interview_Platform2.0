@@ -30,15 +30,11 @@ function Sidebar() {
         name:"Explain Concept",
         path:"/explain_concept",
     },
-    {
-        name:"Progress",
-        path:"/progress"
-    },
-    {
-      name: "Settings",
-      icon: <Settings size={20} />,
-      path: "/settings",
-    },
+    // {
+    //     name:"Progress",
+    //     path:"/progress"
+    // },
+    
   ];
 
   return (

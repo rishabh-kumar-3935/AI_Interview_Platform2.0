@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import { UploadCloud, FileText, Loader2 } from "lucide-react";
 import axiosInstance from "../api/axios";
 import toast from "react-hot-toast";
-
+import {useNavigate} from "react-router-dom";
 function ResumeAnalyzer() {
-  const user = useSelector((state) => state.auth.userData);
-
+  const navigate = useNavigate();
+  const user = useSelector((state)=>state.auth.userData);
+  
   const username =
     user?.username || user?.fullName || "User";
 
@@ -46,6 +47,10 @@ function ResumeAnalyzer() {
       console.log(res.data);
 
       toast.success("Resume analyzed successfully.");
+
+      setTimeout(()=>{
+        navigate("/");
+      },1200);
     } catch (err) {
       console.log(err);
       toast.error("Unable to analyze resume.");
