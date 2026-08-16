@@ -19,7 +19,11 @@ router.route("/current-user").get(
 
 router.route("/change-password").patch(
     verifyJWT,
-    updateAccountDetails
+    changeCurrentPassword
 );
 
+router.route("/update-account").patch(
+    verifyJWT,
+    updateAccountDetails
+)
 export default router;

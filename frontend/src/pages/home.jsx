@@ -13,10 +13,14 @@ function Home() {
 
     const fetchLatestResume = async () => {
         try {
-            const response = await axiosInstance.get("/api/v1/resume/history");
+           const response = await axiosInstance.get(
+    "/api/v1/resume/history"
+);
 
             const resumes = response?.data?.data || [];
+            console.log(resumes);
             setResume(resumes[0] || null);
+            
         } catch (error) {
             console.log(error);
 
@@ -209,12 +213,28 @@ function Home() {
 
                             </div>
 
-                            <iframe
-                                src={resume.resumeUrl}
-                                title="Resume Preview"
-                                className="w-full h-[550px] bg-white"
-                            />
+                            <object
+    data={resume.resumeUrl}
+    type="application/pdf"
+    className="w-full h-[550px]"
+>
+    <div className="flex flex-col items-center justify-center h-full p-6">
 
+        <p className="text-zinc-400 mb-4">
+            PDF preview not available
+        </p>
+
+        <a
+            href={resume.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-green-500 text-black rounded-lg"
+        >
+            Open Resume
+        </a>
+
+    </div>
+</object>
                         </div>
 
                     </div>
